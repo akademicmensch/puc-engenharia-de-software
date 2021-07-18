@@ -7,16 +7,16 @@ Este repositório está dividido em 4 diretórios principais: Protótipo Navegá
 
 ## Protótipo Navegável
 
-Este é o diretório contendo o que consideramos ser a infraestrutura do projeto. Estão aqui os componentes Jenkins, Eureka Discovery Server e o Cloud Gateway.
+Este é o diretório onde se encontra o link para o figma(view only) e o pdf exportado da navegacao.
 
 ## Microsserviços
 
-Este é o repositório onde se encontram tanto as simulações dos sistemas legado quanto seus microsserviços parsers. 
+Este é o repositório onde se encontram os microsserviços do projeto.
 
 ## Middleware
 
-Este é o diretório onde se encontram os microsserviços que nasceram devido a esta nova arquitetura. O microsserviço de gestão de normas, o de consultorias e assessorias e o microsserviço de autenticação por JWT.
+Este é o diretório contendo o que consideramos ser a infraestrutura do projeto. Estão aqui os componentes Eureka Discovery Server e o Cloud Gateway.
 
 ## Diagramas
 
-Este diretório possui uma cópia de cada um dos diagramas escritos no documento caso o avaliador não consiga visualizar com clareza. Os dois devem ser abertos utilizando o [draw.io](http://draw.io/).
+Este diretório possui uma cópia de cada um dos diagramas escritos no documento caso o avaliador não consiga visualizar com clareza. Devem ser abertos utilizando o [draw.io](http://draw.io/).
