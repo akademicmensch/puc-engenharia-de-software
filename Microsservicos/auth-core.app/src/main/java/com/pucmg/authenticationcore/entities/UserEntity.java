@@ -23,6 +23,9 @@ public class UserEntity {
 	@Column(name = "nome")
 	private String name;
 	
+	@Column(name = "senha")
+	private String password;
+	
 	@ManyToOne
 	private RoleEntity role;
 }
