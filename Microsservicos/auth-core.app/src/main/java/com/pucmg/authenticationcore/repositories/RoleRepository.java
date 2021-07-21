@@ -5,14 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.pucmg.authenticationcore.entities.UserEntity;
+import com.pucmg.authenticationcore.entities.RoleEntity;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Long>{
-
-	void addUser(UserEntity user);
+public interface RoleRepository extends JpaRepository<RoleEntity, Long>{
 	
-	@Query("select e from UserEntity e where e.code = :username")
-	UserEntity findByCode(@Param("username") String username);
+	@Query("select e from RoleEntity e where e.description = :role")
+	RoleEntity findByCode(@Param("role") String role);
 
 }

@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 
+import com.pucmg.authenticationcore.entities.RoleEntity;
+import com.pucmg.authenticationcore.entities.UserEntity;
 import com.pucmg.authenticationcore.models.SampleUser;
+import com.pucmg.authenticationcore.repositories.RoleRepository;
 import com.pucmg.authenticationcore.repositories.UserRepository;
 
 @Service
@@ -22,24 +24,13 @@ public class UserDetailService implements UserDetailsService{
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private RoleRepository roleRepository;
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		/*
-
-    	List<SampleUser> users = userRepo.getAllUsers();
-    	
-    	for (SampleUser sampleUser : users) {
-    		if(s.equalsIgnoreCase("usuario1")) {
-    			return new User("usuario1", "guilherme123", retornarAuthority(sampleUser.getRole()));
-        	}else if(s.equalsIgnoreCase("usuario2")) {
-        		return new User("usuario2", "admin", new ArrayList<>());
-        	}else if(s.equalsIgnoreCase("consultoria.um")) {
-        		return new User("consultoria.um", "consultoria.um", new ArrayList<>());
-        	}
-		}
-
-		 * */
-		return null;
+		UserEntity findByCode = userRepository.findByCode(username);
+		return new User(findByCode.getCode(), findByCode.getPassword(), retornarAuthority(findByCode.getRole().getDescription()));
 	}
 	
     public GrantedAuthority obterAuthority(String role) {
@@ -61,24 +52,18 @@ public class UserDetailService implements UserDetailsService{
     }
     
     public void inputDefaultUsers(SampleUser user){
-    	userRepository.addUser(user);
+    	UserEntity entity = new UserEntity();
+    	entity.setCode(user.getName());
+    	entity.setEmail(user.getName());
+    	entity.setName(user.getName());
+    	entity.setPassword("default");
+    	RoleEntity role = roleRepository.findByCode(user.getRole());
+    	entity.setRole(role);
+    	userRepository.saveAndFlush(entity);
     }
-    
     
     public SampleUser retornarUsuarioERole(String user) {
-    	SampleUser u = new SampleUser();
-    	if(user.equalsIgnoreCase("admin")) {
-    		u = new SampleUser("admin","admin");
-    	}else if(user.equalsIgnoreCase("guilherme.batista")) {
-    		u = new SampleUser("guilherme.batista","admin");
-    	}else if(user.equalsIgnoreCase("consultoria.um")) {
-    		u = new SampleUser("consultoria.um","consultoria");
-    	}else if(user.equalsIgnoreCase("consultoria.dois")) {
-    		u = new SampleUser("consultoria.dois","consultoria");
-    	}else if(user.equalsIgnoreCase("funcionario.generico")) {
-    		u = new SampleUser("funcionario.generico","funcionario");
-    	}
-    	return u;
+    	UserEntity findByCode = userRepository.findByCode(user);
+    	return new SampleUser(findByCode.getCode(),findByCode.getRole().getDescription());
     }
-
 }
