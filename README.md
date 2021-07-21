@@ -15,7 +15,7 @@ Este é o repositório onde se encontram os microsserviços do projeto.
 
 ## Middleware
 
-Este é o diretório contendo o que consideramos ser a infraestrutura do projeto. Estão aqui os componentes Eureka Discovery Server e o Cloud Gateway.
+Este é o diretório contendo o que consideramos ser a infraestrutura do projeto. Estão aqui os componentes Eureka Discovery Server e o Cloud Gateway bem como o MER e o script de dados.
 
 ## Diagramas
 
