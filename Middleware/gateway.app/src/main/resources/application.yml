@@ -1,0 +1,55 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders:
+              - content-type
+              - authorization
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
+              - OPTIONS
+   
+      routes:
+        - id: API-AUTH-CORE
+          uri: lb://API-AUTH-CORE
+          predicates:
+            - Path=/auth-core/**
+       
+        - id: API-PROJECT-CORE
+          uri: lb://API-PROJECT-CORE
+          predicates:
+            - Path=/project-core/v1/**
+
+        - id: API-PROJECT-BFF
+          uri: lb://API-PROJECT-BFF
+          predicates:
+            - Path=/project-bff/v1/**
+           
+        - id: API-ADM-BFF
+          uri: lb://API-ADM-BFF
+          predicates:
+            - Path=/adm-bff/v1/**
+           
+        - id: API-REPORT-CORE
+          uri: lb://API-REPORT-CORE
+          predicates:
+            - Path=/report-core/v1/**
+           
+        - id: API-NOTIFICATION-CORE
+          uri: lb://API-NOTIFICATION-CORE
+          predicates:
+            - Path=/notification-core/v1/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost

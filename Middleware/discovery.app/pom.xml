@@ -10,13 +10,13 @@
 		<relativePath />
 	</parent>
 	<groupId>com.pucmg</groupId>
-	<artifactId>discovery</artifactId>
+	<artifactId>discovery.app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Discovery API</name>
 	<description>Discovery</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
