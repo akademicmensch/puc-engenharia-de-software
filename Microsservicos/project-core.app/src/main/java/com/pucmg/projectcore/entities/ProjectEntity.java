@@ -41,5 +41,76 @@ public class ProjectEntity {
 	
 	@ManyToOne
 	private StatusEntity status;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getIdentification() {
+		return identification;
+	}
+
+	public void setIdentification(String identification) {
+		this.identification = identification;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public UserEntity getManager() {
+		return manager;
+	}
+
+	public void setManager(UserEntity manager) {
+		this.manager = manager;
+	}
+
+	public List<UserEntity> getAssociates() {
+		return associates;
+	}
+
+	public void setAssociates(List<UserEntity> associates) {
+		this.associates = associates;
+	}
+
+	public Date getBegin() {
+		return begin;
+	}
+
+	public void setBegin(Date begin) {
+		this.begin = begin;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public StatusEntity getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusEntity status) {
+		this.status = status;
+	}
 }
