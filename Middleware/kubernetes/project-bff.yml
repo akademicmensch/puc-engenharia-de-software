@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-bff-app
+  namespace: {{ blue_green }}
+  labels:
+    app: project-bff-app
+spec:
+  selector:
+    matchLabels:
+      app: project-bff-app
+  replicas: 1
+  minReadySeconds: 30
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: project-bff-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: region
+                operator: In
+                values:
+                - {{ POD_AFFINITY }}
+      containers:
+      - name: project-bff-app-container
+        imagePullPolicy: Always
+        image: {{ IMAGE_PROJECT_BFF }}
+        env:
+         - name: APP_CONT
+           value: {{ CONT_PROJECTBFF }}
+        envFrom:
+        - configMapRef:
+            name: puc
+        ports:
+          - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-bff-app-service
+  namespace: {{ blue_green }}
+  labels:
+    app: project-bff-app
+spec:
+  ports:
+    - name: http
+      port: 8080
+  selector:
+    app: project-bff-app
+  type: ClusterIP 

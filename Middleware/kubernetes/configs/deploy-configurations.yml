@@ -1,0 +1,10 @@
+###Environment###
+blue_green: pucrelease
+POD_AFFINITY: "public"
+
+###Services Version###
+IMAGE_CORE_AUTH: "REGISTRY/puc/core-auth.app:beta"
+IMAGE_CORE_NOTIFICATION: "REGISTRY/puc/core-notification.app:beta"
+IMAGE_CORE_REPORT: "REGISTRY/puc/core-report.app:beta"
+IMAGE_CORE_PROJECT: "REGISTRY/puc/core-project.app:beta"
+IMAGE_BFF_PROJECT: "REGISTRY/puc/bff-project.app:beta"

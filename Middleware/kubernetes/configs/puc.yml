@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: puc
+  namespace: pucrelease
+data:
+  #Global Variables
+  APP_URL:      "vilicusoperis.pucmg.com.br"
+  APP_URL_BASE:      "https://vilicusoperis.pucmg.com.br"
+
+  CORE_AUTH_URL: "http://core-auth-app-service:8090"
+  CORE_NOTIFICATION_URL: "http://core-notification-app-service:8090"
+  CORE_REPORT_URL: "http://core-report-app-service:8090"
+  CORE_PROJECT_URL: "http://core-project-app-service:8090"
