@@ -23,4 +23,4 @@ Este diretório possui uma cópia de cada um dos diagramas escritos no documento
 
 ## Documentos
 
-Este diretório é destino a guardar tanto o documento funcional proposto(Sistema de gerenciamento de projetos) quanto o trabalho de conclusão de curso desenvolvido.
+Este diretório é destino a guardar o documento funcional proposto(Sistema de gerenciamento de projetos), trabalho de conclusão de curso desenvolvido e também a panilha contendo a análise de pontos de função.
