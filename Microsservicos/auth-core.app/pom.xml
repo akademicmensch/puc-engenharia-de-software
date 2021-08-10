@@ -12,7 +12,7 @@
 	<groupId>com.pucmg</groupId>
 	<artifactId>auth-core.app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authentication-core.app</name>
+	<name>auth-core.app</name>
 	<description>Core Project Microsservice</description>
 	<properties>
 		<java.version>1.8</java.version>
